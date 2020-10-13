@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <%- include('../partials/head')%>
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+
+<body>
+    <div class="container-fluid signup">
+        <%- include('../partials/header')%>
+
+        <div class="container-fluid d-flex justify-content-center before-signup">
+            <div class=" box-signup">
+                <div class="box-figure container">
+                    <figure class="figure">
+                        <img src="/icon/004-chef-2.png" class="figure-img img-fluid rounded-0"
+                            alt="Imagem de um quadrado genérico com bordas arredondadas, em uma figure.">
+                    </figure>
+                </div>
+
+                <form>
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control radio-first" id="namesignup"
+                            placeholder="Nome">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" id="emailsignup" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control radio-last" id="passwordsignup"
+                            placeholder="Password">
+                    </div>
+
+                    <div class="form-button">
+                        <button type="submit" class="btn btn-primary">Registar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
+
+    <script>
+        const form = document.querySelector('form')
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault()
+
+
+            const email = document.getElementById('emailsignup').value
+            const password = document.getElementById('passwordsignup').value
+            const name = document.getElementById('namesignup').value
+
+            const res = await fetch('/sequelebusinessapp/users/signup', {
+                method: 'POST',
+                body: JSON.stringify({ name, email, password }),
+                headers: { 'Content-Type': 'application/json' }
+
+            })
+
+            res.json().then(result => {
+                if (result.token != 'undefined') {
+                    console.log(result)
+                    return location.assign('/sequelebusinessapp/market')
+                } else {
+                    console.log(result)
+                    return location.assign('/sequelebusinessapp/users/signup')
+                }
+            }).catch(err => {
+                console.log(err)
+                return location.assign('/sequelebusinessapp/users/signup')
+            })
+        });
+    </script>
+
+</body>
+
+</html>

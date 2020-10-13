@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asul:wght@700&display=swap');
+
+.container-fluid {
+    padding: 0;
+}
+
+
+html,
+body {
+    height: 100vmax;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.pai {
+    border: 1px solid red
+}
+
+
+.filho {
+    border: 1px solid blue
+}
+
+.dropdown-menu{
+    background-color: rgba(255, 255, 255, 0.644);
+    border-radius: 0;
+}
+.main-box {
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.603) 60%, rgba(0, 0, 255, 0.651)), url('https://cdn.pixabay.com/photo/2014/12/06/08/06/fork-558805_960_720.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+
+.navbar {
+    background-color: #F7F8F9;
+}
+
+nav a {
+    font-weight: bold;
+}
+
+
+.login-option {
+    border-radius: 5px;
+    background-color: #6464F4;
+    width: 80px
+}
+
+
+.box-principal {
+    margin-top: 30%;
+}
+
+.box-principal h2,
+.box-principal h4 {
+    margin-bottom: 20px
+}
+
+.box-principal-left {
+    margin-bottom: 10px
+}
+
+
+.cardapio-button {
+    border-radius: 17px;
+    background-color: #6464F4;
+    padding: 10px 10px;
+    border: 1px solid #6464F4;
+    margin-top: 10px
+}
+
+.cardapio-button a {
+    color: rgba(255, 255, 255, 0.863);
+}
+
+.cardapio-button a:hover {
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 14px
+}
+
+@media screen and (max-width: 288.97px) {
+    .box-principal {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-option {
+        background-color: #6464F4;
+        padding-left: 5px;
+    }
+
+
+    .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.274);
+        padding-left: 5px;
+    }
+
+    .dropdown-menu,
+    .dropdown-item {
+        background-color: rgba(255, 255, 255, 0.274);
+    }
+
+
+}
+
+/*Android, Iphone */
+@media screen and (max-width: 575.98px) {
+    .box-principal {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-option {
+        background-color: #6464F4;
+        padding-left: 5px;
+    }
+
+
+}
+
+/* Iphone */
+@media screen and (min-width: 576px) and (max-width: 667.98px) {
+    .box-principal {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-option {
+        background-color: #6464F4;
+        padding-left: 5px;
+    }
+
+
+    .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.274);
+        padding-left: 5px;
+    }
+
+    .dropdown-menu,
+    .dropdown-item {
+        background-color: rgba(255, 255, 255, 0.274);
+    }
+
+}
+
+/* Tablets retrato */
+@media screen and (min-width: 668px) and (max-width: 767.98px) {
+    .box-principal {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-option {
+        background-color: #6464F4;
+        padding-left: 5px;
+    }
+
+
+    .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.274);
+        padding-left: 5px;
+    }
+
+    .dropdown-menu,
+    .dropdown-item {
+        background-color: rgba(255, 255, 255, 0.274);
+    }
+
+}
+
+/* Tablets paisagem */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .box-principal {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-option {
+        background-color: #6464F4;
+        padding-left: 5px;
+    }
+
+
+    .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.274);
+        padding-left: 5px;
+    }
+
+    .dropdown-menu,
+    .dropdown-item {
+        background-color: rgba(255, 255, 255, 0.274);
+    }
+
+}
+
+/* Desktop */
+@media screen and (min-width: 992px) and (max-width: 1790.98px) {
+
+    #navbarNav {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .login-option {
+        background-color: #6464F4;
+    }
+
+    .box-principal {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .box-principal {
+        margin-top: 20%;
+    }
+    
+
+    .box-principal-left {
+        margin-right: 70px;
+        padding-top: 40px;
+    }
+
+    footer {
+        margin-top: 50px;
+    }
+
+}
+
+/* Extra desktop */
+@media screen and (min-width: 1800px) {
+    #navbarNav {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .login-option {
+        background-color: #6464F4;
+    }
+
+    
+    .box-principal {
+        margin-top: 20%;
+    }
+    .box-principal {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .box-principal-left {
+        margin-right: 70px;
+        padding-top: 40px;
+    }
+
+    footer {
+        margin-top: 50px;
+    }
+}

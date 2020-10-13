@@ -1,0 +1,99 @@
+html,
+body {
+    height: 100vmax;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.signup {
+    height: 100%;
+}
+
+.signup h2{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.before-signup{
+    background-color: #6060ea9d;
+    height: 100%;
+}
+.box-signup{
+    margin-top: 100px;
+}
+
+
+.form-control{
+    border-radius: 0;
+}
+.form-group{
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+}
+
+.radio-first {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+.radio-last {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+.form-button{
+    margin-top: 30px
+}
+
+.box-figure {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+@media screen and (max-width: 288.97px) {
+
+    .box-signup{
+        width: 200px;
+    }
+}
+
+/*Android, Iphone */
+@media screen and (max-width: 575.98px) {
+
+}
+
+/* Iphone */
+@media screen and (min-width: 576px) and (max-width: 667.98px) {
+
+}
+
+/* Tablets retrato */
+@media screen and (min-width: 668px) and (max-width: 767.98px) {
+
+}
+
+/* Tablets paisagem */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .box-signup{
+        margin-top: 140px;
+        width: 300px
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 992px) and (max-width: 1790.98px) {
+    .box-signup{
+        margin-top: 210px;
+        width: 300px
+    }
+}
+
+/* Extra desktop */
+@media screen and (min-width: 1800px) {
+    
+}
