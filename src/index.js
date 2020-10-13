@@ -18,9 +18,9 @@ server.set('view engine', 'ejs');
 server.set('views', './src/views');
 server.use(express.static('public'))
 
-server.use('/sequelebusinessapp/users', userRoute )
+server.use('/users', userRoute )
 server.use('/sequelebusinessapp/products', productRoute )
-server.use('/sequelebusinessapp/', freeRoute )
+server.use('/', freeRoute )
 server.listen(PORT, () => {
     console.log('Server is running on PORT:', PORT);
 });

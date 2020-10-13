@@ -54,7 +54,7 @@
             const email = document.getElementById('emaillogin').value
             const password = document.getElementById('passwordlogin').value
 
-            const res = await fetch('/sequelebusinessapp/users/login', {
+            const res = await fetch('/users/login', {
                 method: 'POST',
                 body: JSON.stringify({ email, password }),
                 headers: { 'Content-Type': 'application/json' }
@@ -64,14 +64,14 @@
             res.json().then(result => {
                 if (result.error) {
                     console.log(result)
-                   return location.assign('/sequelebusinessapp/users/login')
+                   return location.assign('/users/login')
                 } else {
                     console.log(result)
-                    return location.assign('/sequelebusinessapp/market')
+                    return location.assign('/market')
                 }
             }).catch(err => {
                 console.log(err)
-                return location.assign('/sequelebusinessapp/users/login')
+                return location.assign('/users/login')
             })
         });
 

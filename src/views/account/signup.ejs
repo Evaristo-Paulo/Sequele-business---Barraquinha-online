@@ -58,7 +58,7 @@
             const password = document.getElementById('passwordsignup').value
             const name = document.getElementById('namesignup').value
 
-            const res = await fetch('/sequelebusinessapp/users/signup', {
+            const res = await fetch('/users/signup', {
                 method: 'POST',
                 body: JSON.stringify({ name, email, password }),
                 headers: { 'Content-Type': 'application/json' }
@@ -68,14 +68,14 @@
             res.json().then(result => {
                 if (result.token != 'undefined') {
                     console.log(result)
-                    return location.assign('/sequelebusinessapp/market')
+                    return location.assign('/market')
                 } else {
                     console.log(result)
-                    return location.assign('/sequelebusinessapp/users/signup')
+                    return location.assign('/users/signup')
                 }
             }).catch(err => {
                 console.log(err)
-                return location.assign('/sequelebusinessapp/users/signup')
+                return location.assign('/users/signup')
             })
         });
     </script>

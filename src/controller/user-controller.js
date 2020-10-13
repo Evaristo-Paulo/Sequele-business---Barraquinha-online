@@ -176,7 +176,7 @@ const delete_user = async (req, res) => {
 
 const logout = async (req, res) => {
     res.clearCookie('jwToken')
-    res.redirect('/sequelebusinessapp/users/login');
+    res.redirect('/users/login');
 }
 
 
