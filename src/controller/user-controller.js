@@ -67,7 +67,7 @@ const post_signup = async (req, res) => {
             from: 'ivarilson909@gmail.com', // Use the email address or domain you verified above
             subject: 'Bem-vindo(a) à Sequele Business',
             text: 'Seja bem-vindo',
-            html: '<p style="text-align: center">Olá, <strong>' + name + '</strong>, sua conta foi criada com sucesso.</p><p style="text-align: center">Faça seu login e descubra o que nossos chefs prepararam para si.</p><h2 style="text-align: center">"Comer bem é uma arte."</h2>',
+            html: '<p style="text-align: center">Olá, <strong>' + name + '</strong>, sua conta foi criada com sucesso.</p><p style="text-align: center">Faça seu <a href="<%https://sequele-business.herokuapp.com/users/login%>">login</a> e descubra o que nossos chefs prepararam para si.</p><h2 style="text-align: center">"Comer bem é uma arte."</h2>',
         };
         //ES8
         (async () => {
