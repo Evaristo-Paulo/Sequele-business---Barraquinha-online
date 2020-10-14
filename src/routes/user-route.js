@@ -19,6 +19,11 @@ route.get('/forgot-password', userController.get_forgot_password)
 
 route.post('/forgot-password', userController.post_forgot_password)
 
+
+route.get('/forgot-password-reset', userController.get_forgot_password_reset)
+
+route.post('/forgot-password-reset', userController.post_forgot_password_reset)
+
 route.get('/logout', userController.logout)
 
 route.get('/:id/show', userController.get_user)

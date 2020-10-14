@@ -14,6 +14,12 @@ const createToken = (user) => {
         expiresIn: maxAge
     })
 }
+
+const createTokenResetEmail = (user) => {
+    return jwt.sign(user, process.env.ACCESS_TOKEN_KEY, {
+        expiresIn: "2h"
+    })
+}
 const get_users = async (req, res) => {
     const users = await User.find({});
 
@@ -65,9 +71,12 @@ const post_signup = async (req, res) => {
         const msg = {
             to: email,
             from: 'ivarilson909@gmail.com', // Use the email address or domain you verified above
-            subject: 'Bem-vindo(a) à Sequele Business',
-            text: 'Seja bem-vindo',
-            html: '<p style="text-align: center">Olá, <strong>' + name + '</strong>, sua conta foi criada com sucesso.</p><p style="text-align: center">Faça seu <a href="<%https://sequele-business.herokuapp.com/users/login%>">login</a> e descubra o que nossos chefs prepararam para si.</p><h2 style="text-align: center">"Comer bem é uma arte."</h2>',
+            templateId: 'd-5a503c1818504fbbbbb6d965d3327b23',
+            dynamicTemplateData: {
+              subject: 'Bem-vindo(a)',
+              name: result.name,
+              city: 'Somewhere',
+            },
         };
         //ES8
         (async () => {
@@ -166,11 +175,90 @@ const get_forgot_password = (req, res) => {
 }
 
 
-const post_forgot_password = (req, res) => {
-    res.render('account/login', {
+const post_forgot_password = async  (req, res) => {
+    const { email } = req.body;
+    try {
+        const user = await User.findOne({
+            email
+        });
+
+        if (!user) {
+            console.log('Email not found')
+            res.status(404).send({
+                error: 'User not found'
+            })
+            return
+        }
+
+        const token = await createTokenResetEmail({
+            id: user._id,
+            user: user.name,
+            email: user.email
+        });
+
+        if (!token) {
+            console.error('Error generating token')
+            res.status(500).send({
+                error: 'Server error'
+            })
+            return
+        }
+
+        user.forgotPasswordToken = token;
+        const result = await user.save();
+
+        
+        /* Enviar Email de boas vindas */
+        const msg = {
+            to: email,
+            from: 'ivarilson909@gmail.com', // Use the email address or domain you verified above
+            templateId: 'd-5956c1077fd74b4889715ca56e705e38',
+            dynamicTemplateData: {
+              subject: 'Redefinir senha',
+              name: result.name,
+              city: 'Somewhere',
+            },
+        };
+        //ES8
+        (async () => {
+            try {
+                await sgMail.send(msg);
+            } catch (error) {
+                console.error(error);
+
+                if (error.response) {
+                    console.error(error.response.body)
+                }
+            }
+        })();
+
+        res.status(200).send({
+            message: 'OK',
+            data: result,
+            token: token
+        });
+
+    } catch (err) {
+        console.error('Error validating credentials: ', err)
+        res.status(404).send({
+            error: 'User not found'
+        })
+
+    }
+
+}
+
+const get_forgot_password_reset = (req, res) => {
+    console.log('Estou aqui')
+}
+
+const post_forgot_password_reset = (req, res) => {
+    res.render('account/forgot_password', {
         user: req.user
     })
 }
+
+
 
 const get_user = async (req, res) => {
     const user = await User.findById(req.params.id)
@@ -208,6 +296,8 @@ module.exports = {
     post_login,
     get_forgot_password,
     post_forgot_password,
+    post_forgot_password_reset,
+    get_forgot_password_reset,
     logout,
     get_user,
     delete_user,
