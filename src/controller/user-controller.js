@@ -208,7 +208,7 @@ const post_forgot_password = async  (req, res) => {
         const result = await user.save();
 
         
-        /* Enviar Email de boas vindas */
+        /* Enviar email de redifinição da senha */
         const msg = {
             to: email,
             from: 'ivarilson909@gmail.com', // Use the email address or domain you verified above
@@ -254,10 +254,60 @@ const get_forgot_password_reset = (req, res) => {
     })
 }
 
-const post_forgot_password_reset = (req, res) => {
-    res.render('account/forgot_password', {
-        user: req.user
-    })
+const post_forgot_password_reset =  async (req, res) => {
+    const { email, password, copypassword } = req.body;
+    try {
+        const user = await User.findOne({
+            email
+        });
+
+        if (!user) {
+            console.log('Email not found')
+            res.status(404).send({
+                error: 'User not found'
+            })
+            return
+        }
+
+        const token = await user.forgotPasswordToken;
+
+        const verifyToken = await jwt.verify(token, process.env.ACCESS_TOKEN_KEY);   //Verificar se o token é válido
+
+
+        if (!verifyToken) {
+            console.error('Error token invalid')
+            res.status(500).send({
+                error: 'Server error'
+            })
+            return
+        }
+        
+        if (password !== copypassword) {
+            console.log('Passwords do not match')
+            res.status(400).send({
+                error: 'Passwords must be equals'
+            })
+            return
+        }
+
+        const salt = await bcrypt.genSalt();
+        user.password = await bcrypt.hash(password, salt)
+        const result = await user.save();
+
+        res.status(200).send({
+            message: 'OK',
+            data: result,
+        });
+
+    } catch (err) {
+        console.error('Internal error: ', err)
+        res.status(500).send({
+            error: 'Internal error'
+        })
+
+    }
+
+    
 }
 
 
