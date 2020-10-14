@@ -249,7 +249,9 @@ const post_forgot_password = async  (req, res) => {
 }
 
 const get_forgot_password_reset = (req, res) => {
-    console.log('Estou aqui')
+    res.render('account/forgot_password_reset', {
+        user: req.user
+    })
 }
 
 const post_forgot_password_reset = (req, res) => {
