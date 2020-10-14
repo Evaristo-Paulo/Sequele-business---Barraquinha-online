@@ -15,6 +15,10 @@ route.get('/login',middleware.currentUser, userController.get_login)
 
 route.post('/login', userController.post_login)
 
+route.get('/forgot-password', userController.get_forgot_password)
+
+route.post('/forgot-password', userController.post_forgot_password)
+
 route.get('/logout', userController.logout)
 
 route.get('/:id/show', userController.get_user)

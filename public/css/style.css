@@ -46,11 +46,20 @@ nav a {
 
 
 .login-option {
-    border-radius: 5px;
-    background-color: #6464F4;
-    width: 80px
+    padding-top: 2px
 }
 
+
+
+.login-option a {
+    border-radius: 5px;
+    background-color: #6464F4;
+    width: 80px;
+    height: 80%;
+    padding-top: 6px;
+    text-align: center;
+    padding-bottom: 15px;
+}
 
 .box-principal {
     margin-top: 30%;
@@ -95,9 +104,8 @@ footer {
         flex-direction: column;
     }
 
-    .login-option {
-        background-color: #6464F4;
-        padding-left: 5px;
+    .login-option a{
+        border: 1px solid red;
     }
 
 
@@ -121,11 +129,6 @@ footer {
         flex-direction: column;
     }
 
-    .login-option {
-        background-color: #6464F4;
-        padding-left: 5px;
-    }
-
 
 }
 
@@ -135,13 +138,6 @@ footer {
         display: flex;
         flex-direction: column;
     }
-
-    .login-option {
-        background-color: #6464F4;
-        padding-left: 5px;
-    }
-
-
     .navbar-collapse {
         background-color: rgba(255, 255, 255, 0.274);
         padding-left: 5px;
@@ -160,13 +156,6 @@ footer {
         display: flex;
         flex-direction: column;
     }
-
-    .login-option {
-        background-color: #6464F4;
-        padding-left: 5px;
-    }
-
-
     .navbar-collapse {
         background-color: rgba(255, 255, 255, 0.274);
         padding-left: 5px;
@@ -184,11 +173,6 @@ footer {
     .box-principal {
         display: flex;
         flex-direction: column;
-    }
-
-    .login-option {
-        background-color: #6464F4;
-        padding-left: 5px;
     }
 
 
@@ -210,10 +194,6 @@ footer {
     #navbarNav {
         display: flex;
         justify-content: flex-end;
-    }
-
-    .login-option {
-        background-color: #6464F4;
     }
 
     .box-principal {
@@ -243,11 +223,6 @@ footer {
         display: flex;
         justify-content: flex-end;
     }
-
-    .login-option {
-        background-color: #6464F4;
-    }
-
     
     .box-principal {
         margin-top: 20%;

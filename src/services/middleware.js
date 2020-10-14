@@ -13,7 +13,7 @@ const requireAuth = async (req, res, next) => {
         }
     }
 
-    res.redirect('/sequelebusinessapp/users/login');
+    res.redirect('/users/login');
 }
 
 const currentUser = async (req, res, next) => {

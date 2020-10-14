@@ -158,6 +158,20 @@ const post_login = async (req, res) => {
 
 }
 
+
+const get_forgot_password = (req, res) => {
+    res.render('account/forgot_password', {
+        user: req.user
+    })
+}
+
+
+const post_forgot_password = (req, res) => {
+    res.render('account/login', {
+        user: req.user
+    })
+}
+
 const get_user = async (req, res) => {
     const user = await User.findById(req.params.id)
 
@@ -192,6 +206,8 @@ module.exports = {
     post_signup,
     get_login,
     post_login,
+    get_forgot_password,
+    post_forgot_password,
     logout,
     get_user,
     delete_user,
