@@ -7,6 +7,9 @@ Based on difficulties my neighbours used to face in order to buy foods and other
 I mean, some cookers/chefs can register on our platform and sell their products, that way, others can acess this platform to buy them. Products can be delived or customer can stop by at cooker's workplace.<br/>
 When chef signup, they receive a welcome notification in their email.<br/>
 You can reset your password as well, in order to have a new one, in cause you forgot your current one.<br/>
+
+Watch a little bit!
+![Project animation ](https://github.com/Evaristo-Paulo/Sequele-business---Barraquinha-online/blob/d384b86b03d0e4425e757410943bba47abbaf6d4/barraquinha.gif)
 # Getting started
 Click [here](https://github.com/Evaristo-Paulo/Sequele-business---Barraquinha-online/archive/master.zip) to download this project.
 
